@@ -5,6 +5,7 @@ import ItemList from "./ItemList";
 import Sidebar from "./Sidebar";
 
 function App() {
+  //const [items, setItems] = useState(initialItems);
   return (
     <>
       <BackgroundHeading />
