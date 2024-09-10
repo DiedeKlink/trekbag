@@ -74,9 +74,15 @@ header {
   grid-row: 2 / 3;
   background-color: #fff;
   overflow-y: scroll;
-  scrollbar-color: red orange;
+  //  scrollbar-color: red orange;
   scrollbar-width: thin;
   position: relative;
+}
+
+.item-list > section {
+  text-align: center;
+  max-width: 270px;
+  margin: 37% auto;
 }
 
 .item-list::-webkit-scrollbar {
