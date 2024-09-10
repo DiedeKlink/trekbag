@@ -79,7 +79,7 @@ header {
   position: relative;
 }
 
-.item-list > section {
+.empty-view {
   text-align: center;
   max-width: 270px;
   margin: 37% auto;
