@@ -3,10 +3,8 @@ import Footer from "./Footer";
 import Header from "./Header";
 import ItemList from "./ItemList";
 import Sidebar from "./Sidebar";
-import AddItemForm from "./AddItemForm";
 import { initialItems } from "../lib/constants";
 import { useState } from "react";
-import ButtonGroup from "./ButtonGroup";
 
 function App() {
   const [items, setItems] = useState(initialItems);
@@ -21,6 +19,23 @@ function App() {
     setItems(newItems);
   };
 
+  const handleRemoveAllItems = () => {
+    setItems([]);
+  };
+
+  const handleResetToInitial = () => {
+    setItems(initialItems);
+  };
+
+  const handleMarkAllAsComplete = () => {
+    const newItems = items.map((item) => ({ ...item, packed: true }));
+    setItems(newItems);
+  };
+
+  const handleMarkAllAsIncomplete = () => {
+    const newItems = items.map((item) => ({ ...item, packed: false }));
+    setItems(newItems);
+  };
   return (
     <>
       <BackgroundHeading />
@@ -28,7 +43,13 @@ function App() {
       <main>
         <Header />
         <ItemList items={items} />
-        <Sidebar handleAddItem={handleAddItem} />
+        <Sidebar
+          handleAddItem={handleAddItem}
+          handleRemoveAllItems={handleRemoveAllItems}
+          handleResetToInitial={handleResetToInitial}
+          handleMarkAllAsComplete={handleMarkAllAsComplete}
+          handleMarkAllAsIncomplete={handleMarkAllAsIncomplete}
+        />
       </main>
 
       <Footer />
