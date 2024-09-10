@@ -10,6 +10,17 @@ import ButtonGroup from "./ButtonGroup";
 
 function App() {
   const [items, setItems] = useState(initialItems);
+
+  const handleAddItem = (newItemText) => {
+    const newItem = {
+      id: new Date().getTime(),
+      name: newItemText,
+      packed: false,
+    };
+    const newItems = [...items, newItem];
+    setItems(newItems);
+  };
+
   return (
     <>
       <BackgroundHeading />
@@ -17,10 +28,7 @@ function App() {
       <main>
         <Header />
         <ItemList items={items} />
-        <Sidebar>
-          <AddItemForm setItems={setItems} />
-          <ButtonGroup />
-        </Sidebar>
+        <Sidebar handleAddItem={handleAddItem} />
       </main>
 
       <Footer />

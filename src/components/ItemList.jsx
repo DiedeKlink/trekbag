@@ -1,8 +1,8 @@
-export default function ItemList({ items }) {
+export default function ItemList({ items, setItems }) {
   return (
     <ul>
       {items.map((item) => (
-        <Item key={item.id} item={item} />
+        <Item setItems={setItems} key={item.id} item={item} />
       ))}
     </ul>
   );
